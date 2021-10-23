@@ -28,7 +28,7 @@ def conecta_bd():
 
 def cadastra_cliente(cursor, nome, cpf, telefone):
     comando = f'''
-    INSERT INTO `locadora`.`cliente`(
+    INSERT INTO `pousada`.`cliente`(      # mudei de locadora para pousada
         `nome`,
         `cpf`,
         `telefone`
@@ -62,8 +62,8 @@ def consulta_cliente(cursor):
 
     return None
 
-# cadastro_carro = ''
-# cadastro_aluguel = ''
+# cadastro_quarto = ''                ajustes de ortografia
+# cadastro_reserva = ''
 
 # cursor.execute(cadastro_cliente)
 # print('Cadastro executado com sucesso!')
@@ -71,7 +71,7 @@ def consulta_cliente(cursor):
 # conexao.commit()
 
 # Deleção
-# remocao_carro =
+# remocao_quarto =
 # remocao_cliente =
 
 # Consulta
