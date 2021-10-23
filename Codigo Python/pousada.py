@@ -1,8 +1,9 @@
 import os
 
-from mysql.connector import cursor
+from mysql.connector import cursor #não estou sabendo iniciar com mysql
 
 import banco_dados
+
 
 conexao = banco_dados.conecta_bd()
 cursor = conexao.cursor()
@@ -16,6 +17,9 @@ def menu(conexao=cursor):
     print('='*35)
     print()
     while op != '7':  # Sai quando a op é 5
+        print('=' * 80)
+        print("BEM VINDO A POUSADA GAMA - ".center(80))
+        print('=' * 80)
         print('    ESCOLHA A OPÇÃO DESEJADA:')
         print('=' * 35)
         print('    1 - CADASTRO DE CLIENTE')
@@ -67,6 +71,44 @@ def menu(conexao=cursor):
             print('-'*50)
             input('Aperte Enter para voltar: ')
             os.system('cls')
+
+            #não consegui testar
+        if op == '6':
+            os.system('cls')
+            print('='*19)
+            print('RELATÓRIOS'.center(19))
+            print('='*19)
+            
+            #clientes
+            if cliente_checkin > 0:   #qual codigo de checkin?
+            
+                print('='*19)
+                print('RELATÓRIO CLIENTES')
+                print('='*19)
+                
+
+
+                cliente['nome'].value_counts()[:]  #acho q isso somaria os clientes
+                print(cliente[nome, cpf, telefone])  #tem q fazer a lista dos clientes aparecer
+                print(sum)
+
+
+            #quartos
+            
+            #quartos ocupados       
+                print('='*19)
+                print('RELATÓRIO QUARTOS')
+                print('='*19)
+                porcentagem = 
+                print()
+                print(f'Quarto ocupados({acomodacao}, {tipo}, {numero},{status}')  #mostrar lista de quartos
+            
+            else:
+                print('Hotel está vazio')
+
+            conexao.commit()  # se não executar commit as alterações não são salvas
+            os.system('cls')
+            print(f'Relatório exibido com sucesso!')    
 
         elif op == '7':
             os.system('cls')
