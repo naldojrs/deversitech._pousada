@@ -1,6 +1,8 @@
 import pymysql.cursors
 import getpass
 
+#------------------------------------- CONECTAR NO BANCO (OK) ------------------------------------- 
+
 
 def conecta_bd():
     print('=' * 31)
@@ -26,16 +28,24 @@ def conecta_bd():
     return conexao
 
 
-def cadastra_cliente(cursor, nome, cpf, telefone):
+#------------------------------------- CASDASTRAR CLIENTE (OK) -------------------------------------  
+
+
+def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
     comando = f'''
     INSERT INTO `pousada`.`cliente`(      # mudei de locadora para pousada
         `nome`,
         `cpf`,
-        `telefone`
+        `telefone`,
+        `endereco`,
+        `status_c`
+
     ) VALUES (
         "{nome}",
         "{cpf}",
-        "{telefone}"
+        "{telefone}",
+        "{endereco}",
+        "{status_c}"
     );
     '''
 
@@ -59,8 +69,18 @@ def consulta_cliente(cursor):
         print('Nome: ', dic['nome'])
         print(f"CPF: {dic['cpf']}")
         print(f'Telefone: {dic["telefone"]}')
+        print(f'Endereço: {dic["endereco"]}')
+        print(f'Status do cliente: {dic["status_c"]}')
 
     return None
+
+
+#------------------------------------- CASDASTRAR QUARTO (OK) -------------------------------------
+
+
+
+
+
 
 # cadastro_quarto = ''                ajustes de ortografia
 # cadastro_reserva = ''
