@@ -8,25 +8,25 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema dbPousada
+-- Schema bd_pousada
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema dbPousada
+-- Schema bd_pousada
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `dbPousada` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `dbPousada` ;
+CREATE SCHEMA IF NOT EXISTS `bd_pousada` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `bd_pousada` ;
 
 -- -----------------------------------------------------
--- Table `dbPousada`.`clilentes`
+-- Table `bd_pousada`.`clientes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dbPousada`.`clilentes` (
+CREATE TABLE IF NOT EXISTS `bd_pousada`.`clientes` (
   `id` INT NOT NULL,
-  `Nome` VARCHAR(250) NULL DEFAULT NULL,
+  `nome` VARCHAR(250) NULL DEFAULT NULL,
   `CPF` INT NULL DEFAULT NULL,
-  `Endereco` VARCHAR(250) NULL DEFAULT NULL,
-  `Telefone` INT NULL DEFAULT NULL,
-  `Status` VARCHAR(15) NULL DEFAULT NULL,
+  `endereco` VARCHAR(250) NULL DEFAULT NULL,
+  `telefone` INT NULL DEFAULT NULL,
+  `status` VARCHAR(15) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -34,40 +34,43 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `dbPousada`.`reserva`
+-- Table `bd_pousada`.`quartos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dbPousada`.`reserva` (
+CREATE TABLE IF NOT EXISTS `bd_pousada`.`quartos` (
   `id` INT NOT NULL,
-  `Status` VARCHAR(15) NULL DEFAULT NULL,
-  `fk_Clilentes_id` INT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `FK_Reserva_2` (`fk_Clilentes_id` ASC) VISIBLE,
-  CONSTRAINT `FK_Reserva_2`
-    FOREIGN KEY (`fk_Clilentes_id`)
-    REFERENCES `dbPousada`.`clilentes` (`id`)
-    ON DELETE RESTRICT)
+  `tipo` VARCHAR(25) NULL DEFAULT NULL,
+  `numQuarto` INT NULL DEFAULT NULL,
+  `acomodacao` VARCHAR(250) NULL DEFAULT NULL,
+  `status` VARCHAR(15) NULL DEFAULT NULL,
+  `check_in` DATE NULL DEFAULT NULL,
+  `check_out` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `dbPousada`.`quartos`
+-- Table `bd_pousada`.`reservas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dbPousada`.`quartos` (
+CREATE TABLE IF NOT EXISTS `bd_pousada`.`reservas` (
   `id` INT NOT NULL,
-  `numQuarto` INT NULL DEFAULT NULL,
-  `tipo` VARCHAR(25) NULL DEFAULT NULL,
-  `Acomodacao` VARCHAR(250) NULL DEFAULT NULL,
+  `cliente_id` INT NULL DEFAULT NULL,
+  `quarto_id` INT NULL DEFAULT NULL,
   `Status` VARCHAR(15) NULL DEFAULT NULL,
-  `Checkin` DATE NULL DEFAULT NULL,
-  `Checkout` DATE NULL DEFAULT NULL,
-  `fk_Reserva_id` INT NULL DEFAULT NULL,
+  `date` DATE NULL DEFAULT NULL,
+  `fk_clientes_id` INT NULL DEFAULT NULL,
+  `fk_quartos_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `FK_Quartos_2` (`fk_Reserva_id` ASC) VISIBLE,
-  CONSTRAINT `FK_Quartos_2`
-    FOREIGN KEY (`fk_Reserva_id`)
-    REFERENCES `dbPousada`.`reserva` (`id`)
+  INDEX `FK_reservas_2` (`fk_clientes_id` ASC) VISIBLE,
+  INDEX `FK_reservas_3` (`fk_quartos_id` ASC) VISIBLE,
+  CONSTRAINT `FK_reservas_2`
+    FOREIGN KEY (`fk_clientes_id`)
+    REFERENCES `bd_pousada`.`clientes` (`id`)
+    ON DELETE RESTRICT,
+  CONSTRAINT `FK_reservas_3`
+    FOREIGN KEY (`fk_quartos_id`)
+    REFERENCES `bd_pousada`.`quartos` (`id`)
     ON DELETE RESTRICT)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
