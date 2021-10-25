@@ -68,14 +68,14 @@ def menu(conexao=cursor):
 
         elif op == '2':
             # CADASTRA QUARTO()
-            print('CADASTRA QUARTO()')
             os.system('cls')
-            acomodacao = input('Acomodação:')
+            print('CADASTRA QUARTO()')
+            acomodacao = input('Acomodação: ')               #oq seria acomdacao?
             tipo = input('Tipo:')
-            num_quarto = input('Número:')                   #troquei o nome de numero para num_quarto
-            check_in = input('Check-in: ')                  #add precisa colocar sincronizado com data?
+            num_quarto = input('Número: ')                   #troquei o nome de numero para num_quarto
+            check_in = input('Check-in: ')                  #add precisa colocar sincronizado com data? não sei se entraria aqui
             check_out = input('Check-out: ')                #add
-            status_q = input('Status Quarto:')
+            status_q = input('Status Quarto: ')
 
             print(f'Cadastro Quarto({acomodacao}, {tipo}, {num_quarto},{check_in},{check_out},{status_q}')
             banco_dados.cadastra_quarto(cursor, acomodacao, tipo, num_quarto, check_in, check_out, status_q)  #assim que salva???
@@ -87,17 +87,21 @@ def menu(conexao=cursor):
 #------------------------------------- EXCLUIR CLIENTES ------------------------------------- 
 
 
-        elif op == '3':
+        elif op == '3':           #pensei agora, não testei
             # EXCLUIR CLIENTE ()
-            # for 
-            # if check_out > data_atual:
-            #print('CLIENTE NO HOTEL')
-            #os.system('cls')
+            os.system('cls')
+            print(' DIGITE O CPF PARA EXCLUIR O CLIENTE')
+            #1 ideia
+            #cpf_del = input('CPF: ')
+            #del(cadastro_cliente['cpf'] == cpf_del)
+            
+            #2 ideia
+            #for i in nomes:
+            cpf_del = input('CPF: ')
+            if(i == cpf_del):
+                deleta(i)
 
 
-            #tem q pensar em lista
-            # data_atual > check_out, então o cliente será excluido pq não está mais no quarto
-            # quando excluir o cliente aqui, tem que liberar o quarto também
             print('CLIENTE EXCLUIDO()')
 
 
@@ -106,7 +110,10 @@ def menu(conexao=cursor):
 
         elif op == '4':
             # EXCLUIR QUARTO()
+            os.system('cls')
             print('QUARTO EXCLUIDO()')
+            
+            #Se der certo clientes, repetir em quartos
 
 
 #------------------------------------- RESERVA ------------------------------------- 
@@ -115,10 +122,23 @@ def menu(conexao=cursor):
         elif op == '5':
             # RESERVA() add aqui também
             os.system('cls')
+            while status_q == "livre":
+                #print(SELECT * FROM "cadastra_quarto" WHERE "status_q" == "livre" AND "tipo")            Para mostrar os quartos livres   
+                cadastro_quarto[num_quarto] = input('Selecione o Número do quarto: ')  
+                
+            
+            
+            #Acho que o input do check-in/out seria agora
+            #check_in = input('Check-in: ')                  #add precisa colocar sincronizado com data? não sei se entraria aqui
+            #check_out = input('Check-out: ')                #add            
+            
+            
+            
+            
             cliente_id = input('Cliente:') #precisa trazer o input do cliente
             #SELECT * FROM cliente WHERE check_in LIKE yes 
             # alguma coisa assim, puxando do sql
-            quuarto_id = input('Quarto:')
+            quarto_id = input('Quarto:')
             #SELECT * FROM quarato WHERE check_in LIKE yes 
             # alguma coisa assim, puxando do sql
             date = input('Data:')  
