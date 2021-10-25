@@ -28,6 +28,22 @@ def conecta_bd():
     return conexao
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+def cadastra_cliente(cursor, nome, cpf, telefone, endereco):
+    comando = f'''
+    INSERT INTO `dbpousada`.`clientes`(
+        `nome`,
+        `cpf`,
+        `telefone`,
+        `endereco`
+
+    ) VALUES (
+        "{nome}",
+        {cpf},
+        {telefone},
+        "{endereco}"
+=======
 #------------------------------------- CASDASTRAR CLIENTE (OK) -------------------------------------  
 
 
@@ -37,6 +53,17 @@ def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
         `nome`,
         `cpf`,
         `telefone`,
+=======
+#------------------------------------- CASDASTRAR CLIENTE (OK) -------------------------------------  
+
+
+def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
+    comando = f'''
+    INSERT INTO `pousada`.`cliente`(      # mudei de locadora para pousada
+        `nome`,
+        `cpf`,
+        `telefone`,
+>>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
         `endereco`,
         `status_c`
 
@@ -46,19 +73,50 @@ def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
         "{telefone}",
         "{endereco}",
         "{status_c}"
+<<<<<<< HEAD
+>>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
+=======
+>>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
     );
     '''
-
+    print(comando)
     cursor.execute(comando)
     print('Cadastro executado com sucesso!')
     print(f'Cliente {nome} cadastrado!')
     # return None
 
 
-def consulta_cliente(cursor):
-    comando = '''
-    SELECT * FROM cliente
+def cadastra_quartos(cursor, numero, tipo, acomodacao, status):
+    comando = f'''INSERT INTO `quartos`(`numero`,
+                                  `tipo`,
+                                  `acomodacao`
+                                  `status`
+                                  )
+                                  VALUES (
+        {numero},
+        "{tipo}",
+        "{acomodacao}",
+        "{status}"
+    );
     '''
+    cursor.execute(comando)
+    print('Cadastro executado com sucesso!')
+    print(f'Quarto {numero} cadastrado!')
+    # return None
+
+
+def reserva_check_in(cursor):
+    comando = ''' SELECT * FROM reservas
+    '''
+    cursor.execute(comando)
+
+
+def consulta_clientes(cursor, nome):
+    comando = f''' SELECT * FROM clientes where nome =  "{nome}"; '''
+
+    cursor.execute(comando)
+    print('Consulta executado com sucesso!')
+    print(f'Cliente {nome}!')
 
     cursor.execute(comando)
 
@@ -73,6 +131,8 @@ def consulta_cliente(cursor):
         print(f'Status do cliente: {dic["status_c"]}')
 
     return None
+<<<<<<< HEAD
+=======
 
 
 #------------------------------------- CASDASTRAR QUARTO (OK) -------------------------------------
@@ -82,6 +142,17 @@ def consulta_cliente(cursor):
 
 
 
+<<<<<<< HEAD
+=======
+
+#------------------------------------- CASDASTRAR QUARTO (OK) -------------------------------------
+
+
+
+
+
+
+>>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
 # cadastro_quarto = ''                ajustes de ortografia
 # cadastro_reserva = ''
 
@@ -109,3 +180,4 @@ def consulta_cliente(cursor):
 # print('Consulta executada com sucesso!')
 # print('Resultado: ')
 # print(resultado)
+>>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
