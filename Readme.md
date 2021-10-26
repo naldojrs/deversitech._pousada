@@ -16,15 +16,13 @@
 
 ###### Requisitos do projeto
 
-- Foi solicitado pelos donos de uma nova pousada, o desenvolvimento de um software para gerenciar quartos, clientes e reservas. É importante que o sistema permita o cadastro de quartos e clientes, assim como sua deleção em caso de algum erro no cadastro.
+- Desenvolvimento de um software para gerenciar quartos, clientes e reservas. É importante que o sistema permita o cadastro de quartos e clientes, assim como sua deleção em caso de algum erro no cadastro.
 
-- O donos da nova pousada solicitaram que o sistema seja implementado a fim de gerenciar as reservas de quartos. Neste caso, as reservas só podem ser efetuadas se, quarto e clientes estiverem cadastrados e o quarto solicitado estiver livre.
+- O sistema implementado irá gerenciar as reservas de quartos. Neste caso, as reservas só podem ser efetuadas se, quarto e clientes estiverem cadastrados e o quarto solicitado estiver livre.
 
 - O sistema precisa exibir relatório com todos os quarto e seus respectivos status. Permitindo ao cliente escolher o quarto disponível, após a escolha do quarto o sistema realiza a reserva.
 
 - O sistema precisa ter opção de check-in e check-out. O check-in só pode ser permitido se o quarto estiver reservado, e o check-out só é permitido se o quarto estiver com status ocupado. 
-
-- O plus do projeto deverá ser um menu limpo e intuitivo.
 
 - O processo terá diversas etapas e status: Livre > reservado > realizando check-in > ocupado > realizando check-out > Livre.
 
@@ -39,16 +37,12 @@
 
 ###### Componentes do grupo
 
+
+- Jefte Oliveira
+- Josinaldo Rodrigues dos Santos
+- Júlio Furtado
 - Osiel Mesquita de Oliveira
 - Thiago Batista Altoé
-- Matheus Willian 
-- Lilian de Souza Cavalcante
-- Júlio Furtado
-- Josinaldo Rodrigues dos Santos
-- Jorge Francisco Vieira Silvestre
-- Jefte Oliveira
-- Jefferson Fabricio
-- eduardo
 
 
 
