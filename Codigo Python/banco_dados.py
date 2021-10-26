@@ -22,7 +22,7 @@ def conecta_bd():
         cursorclass=pymysql.cursors.DictCursor
     )
 
-    print('Banco de dados conectado com sucesso!')
+    print('Banco de Dados Conectado com Sucesso!')
     return conexao
 
 
