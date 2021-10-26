@@ -28,11 +28,11 @@ def conecta_bd():
     return conexao
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+   
+   
 def cadastra_cliente(cursor, nome, cpf, telefone, endereco):
     comando = f'''
-    INSERT INTO `dbpousada`.`clientes`(
+    INSERT INTO `db_pousada`.`clientes`(
         `nome`,
         `cpf`,
         `telefone`,
@@ -43,29 +43,19 @@ def cadastra_cliente(cursor, nome, cpf, telefone, endereco):
         {cpf},
         {telefone},
         "{endereco}"
-=======
+  
+
 #------------------------------------- CASDASTRAR CLIENTE (OK) -------------------------------------  
 
 
 def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
     comando = f'''
-    INSERT INTO `pousada`.`cliente`(      # mudei de locadora para pousada
-        `nome`,
-        `cpf`,
-        `telefone`,
-=======
-#------------------------------------- CASDASTRAR CLIENTE (OK) -------------------------------------  
-
-
-def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
-    comando = f'''
-    INSERT INTO `pousada`.`cliente`(      # mudei de locadora para pousada
-        `nome`,
-        `cpf`,
-        `telefone`,
->>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
-        `endereco`,
-        `status_c`
+    INSERT INTO 'bd_pousada'.'clientes'(
+        'nome',
+        'cpf',
+        'telefone',
+        'endereco',
+        'status_c'
 
     ) VALUES (
         "{nome}",
@@ -73,10 +63,7 @@ def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
         "{telefone}",
         "{endereco}",
         "{status_c}"
-<<<<<<< HEAD
->>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
-=======
->>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
+
     );
     '''
     print(comando)
@@ -87,13 +74,13 @@ def cadastra_cliente(cursor, nome, cpf, telefone, endereco, status_c):
 
 
 def cadastra_quartos(cursor, numero, tipo, acomodacao, status):
-    comando = f'''INSERT INTO `quartos`(`numero`,
-                                  `tipo`,
-                                  `acomodacao`
-                                  `status`
+    comando = f'''INSERT INTO 'quartos'('numero',
+                                  'tipo',
+                                  'acomodacao',
+                                  'status'
                                   )
                                   VALUES (
-        {numero},
+        '{numero}',
         "{tipo}",
         "{acomodacao}",
         "{status}"
@@ -131,8 +118,8 @@ def consulta_clientes(cursor, nome):
         print(f'Status do cliente: {dic["status_c"]}')
 
     return None
-<<<<<<< HEAD
-=======
+   
+  
 
 
 #------------------------------------- CASDASTRAR QUARTO (OK) -------------------------------------
@@ -142,17 +129,9 @@ def consulta_clientes(cursor, nome):
 
 
 
-<<<<<<< HEAD
-=======
-
-#------------------------------------- CASDASTRAR QUARTO (OK) -------------------------------------
 
 
 
-
-
-
->>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
 # cadastro_quarto = ''                ajustes de ortografia
 # cadastro_reserva = ''
 
@@ -180,4 +159,4 @@ def consulta_clientes(cursor, nome):
 # print('Consulta executada com sucesso!')
 # print('Resultado: ')
 # print(resultado)
->>>>>>> 8d19f7ec5af9b6e23f890465d3b3ebca6474ffdd
+
