@@ -1,0 +1,3 @@
+import pousada
+
+pousada.menu()
