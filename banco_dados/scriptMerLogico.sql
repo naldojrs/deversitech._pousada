@@ -4,7 +4,7 @@ CREATE TABLE reservas (
     id int(3) PRIMARY KEY,
     cliente_id int(3),
     quarto_id int(3),
-    Status varchar(15),
+    status varchar(15),
     date date,
     fk_clientes_id int(3),
     fk_quartos_id int(3)
@@ -13,9 +13,9 @@ CREATE TABLE reservas (
 CREATE TABLE quartos (
     id int(3) PRIMARY KEY,
     tipo varchar(25),
-    numQuarto int(5),
+    num_quarto int(5),
     acomodacao varchar(250),
-    status varchar(15),
+    status_q varchar(15),
     check_in date,
     check_out date
 );
@@ -26,7 +26,7 @@ CREATE TABLE clientes (
     CPF int(11),
     endereco varchar(250),
     telefone int(14),
-    status varchar(15)
+    status_c varchar(15)
 );
  
 ALTER TABLE reservas ADD CONSTRAINT FK_reservas_2
