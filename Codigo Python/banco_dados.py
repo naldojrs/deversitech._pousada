@@ -26,9 +26,9 @@ def conecta_bd():
     return conexao
 
 
-def cadastra_cliente(cursor, nome, cpf, telefone, endereco):
+def cadastra_clientes(cursor, nome, cpf, telefone, endereco):
     comando = f'''
-    INSERT INTO `dbpousada`.`clientes`(
+    INSERT INTO `db_pousada`.`clientes`(
         `nome`,
         `cpf`,
         `telefone`,
@@ -48,22 +48,21 @@ def cadastra_cliente(cursor, nome, cpf, telefone, endereco):
     # return None
 
 
-def cadastra_quartos(cursor, numero, tipo, acomodacao, status):
-    comando = f'''INSERT INTO `quartos`(`numero`,
-                                  `tipo`,
-                                  `acomodacao`
-                                  `status`
-                                  )
-                                  VALUES (
-        {numero},
+def cadastra_quarto(cursor, numQuarto,tipo, acomodacao, status_q, check_in, check_out):
+    comando = f'''INSERT INTO `quartos`(`numQuarto`,
+        `tipo`, `acomodacao`, `status_q`, `check_in`, `check_out`)
+        VALUES (
+        {numQuarto},
         "{tipo}",
         "{acomodacao}",
-        "{status}"
+        "{status_q}",
+        "{check_in}",
+        "{check_out}"
     );
     '''
     cursor.execute(comando)
     print('Cadastro executado com sucesso!')
-    print(f'Quarto {numero} cadastrado!')
+    print(f'Quarto {numQuarto} cadastrado!')
     # return None
 
 
@@ -87,7 +86,7 @@ def consulta_clientes(cursor, nome):
         print('-' * 50)
         print('ID: ', dic['id'])
         print('Nome: ', dic['nome'])
-        print(f"CPF: {dic['cpf']}")
-        print(f'Telefone: {dic["telefone"]}')
+        print(f'CPF: ', {dic['cpf']})
+        print(f'Telefone: ', {dic["telefone"]})
 
     return None

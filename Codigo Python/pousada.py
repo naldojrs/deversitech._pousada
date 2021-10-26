@@ -5,7 +5,7 @@ import banco_dados
 conexao = banco_dados.conecta_bd()
 cursor = conexao.cursor()
 
-
+#------------------------------------- MENU (OK) ------------------------------------- 
 def menu():
     os.system('cls')
     op = ''
@@ -28,6 +28,8 @@ def menu():
         print('    10 - RELATÓRIO')
         print('    11 - SAIR')
         op = input('Opção: ')
+
+#------------------------------------- 1 CADASTRO DE CLIENTE (OK) -------------------------------------
         if op == '1':
             # CADASTRA CLIENTE()
             os.system('cls')
@@ -38,29 +40,35 @@ def menu():
             nome = input('Nome: ')
             cpf = input('CPF: ')
             telefone = input('Telefone: ')
-            endereco = input('Endereço')
+            endereco = input('Endereço: ')
 
-            banco_dados.cadastra_cliente(cursor, nome, cpf, telefone, endereco)
+            banco_dados.cadastra_clientes(cursor, nome, cpf, telefone, endereco)
             print(type(conexao))
             conexao.commit()  # se não exe commit as alterações não são salva
             os.system('cls')
             print(f'Usuário {nome} cadastrado com sucesso!')
+
+#------------------------------------- 2 CADASTRO DE QUARTOS (OK) -------------------------------------
         elif op == '2':
             # CADASTRA QUARTO()
             os.system('cls')
             print('='*19)
             print('CADASTRA QUARTO()')
             print('='*19)
-            acomodacao = input('Acomodação: ')
-            tipo = input('Tipo: ')
-            numero = input('Número: ')
-            status = input('Status: ')
 
-            banco_dados.cadastra_quartos(
-                cursor, numero, tipo, acomodacao, status)
+            numQuarto = input('Número: ')
+            tipo = input('Tipo: ')
+            acomodacao = input('Acomodação: ')
+            status_q = input('Status: ')
+            check_in = input('Check-in: ')
+            check_out = input('Check-out: ')
+
+            banco_dados.cadastra_quarto(cursor, numQuarto, tipo, acomodacao, status_q, check_in, check_out)
             conexao.commit()
             os.system('cls')
-            print(f'Quarto {numero} Cadstrado com Sucesso!')
+            print(f'Quarto {numQuarto} Cadstrado com Sucesso!')
+
+#------------------------------------- 3 RESERVA CHECK-IN ---------------------------------------
         elif op == '3':
             # RESERVA - CHECK_IN ()
             os.system('cls')
@@ -68,51 +76,94 @@ def menu():
             print('RESERVA - CHECK_IN()')
             print('='*19)
 
+#------------------------------------- 4 CONSULTA CLIENTES -------------------------------------
         elif op == '4':
             # CONSULTA CLIENTES()
             os.system('cls')
+            print('='*19)
             print('CONSULTA CLIENTES()')
+            print('='*19)
+            
             nome = input('Nome: ')
-
-            banco_dados.consulta_clientes(cursor, nome)
+            
+            banco_dados.consulta_clientes(cursor, nome,cpf, telefone)
             print('-'*50)
             input('Aperte Enter para voltar: ')
             os.system('cls')
-        elif op == '5':
-            # CONSULTA QUARTO()
-            print('CONSULTA QUARTO()')
-            numero = input('Número:')
 
-            print(f'QUARTO {numero}')
+#------------------------------------- 5 CONSULTA QUARTOS -------------------------------------  
+        elif op == '5':
+            # CONSULTA QUARTO() - ACHO QUE PRECISA CADASTRAR UM QUARTO.
+            os.system('cls')
+            print('='*19)
+            print('CONSULTA QUARTO()')
+            print('='*19)
+            numQuarto = input('Número: ')
+
+            print(f'QUARTO {numQuarto}')
+
+#------------------------------------- 6 CONSULTA RESERVA -------------------------------------
         elif op == '6':
             # CONSULTA RESERVA()
+            os.system('cls')
+            print('='*19)
             print('CONSULTA RESERVA()')
-            nome = input('NOME DO CLIENTE:')
+            print('='*19)
+
+            nome = input('NOME DO CLIENTE: ')
 
             print(f'RESERVA {nome}')
+
+#------------------------------------- 7 EXCLUIR CLIENTES -------------------------------------
         elif op == '7':
             # EXCLUIR CLIENTE()
+            os.system('cls')
+            print('='*19)
             print('EXCLUIR CLIENTE ()')
-            nome = input('NOME DO CLIENTE:')
+            print('='*19)
+
+            nome = input('NOME DO CLIENTE: ')
+
             print(f'Cliente {nome} excluido com sucesso!')
+
+#------------------------------------- 8 EXCLUIR QUARTOS -------------------------------------
         elif op == '8':
             # EXCLUIR QUARTO()
-            numero = input('NUMERO DO QUARTO:')
-            print(f'Quarto {numero} excluido com sucesso!')
+            os.system('cls')
+            print('='*19)
+            numQuarto = input('NUMERO DO QUARTO: ')
+            print('='*19)
+
+            print(f'Quarto {numQuarto} excluido com sucesso!')
+
+#------------------------------------- 9 RESERVA CHECK-OUT ------------------------------------ 
         elif op == '9':
             # RESERVA - CHECK OUT()
-            numero = input('NUMERO DO QUARTO:')
-            print(f'Quarto {numero} Check Out com sucesso!')
+            os.system('cls')
+            print('='*19)
+            numQuarto = input('RESERVA - CHECK OUT()')
+            print('='*19)
+
+            print(f'Quarto {numQuarto} Check Out com sucesso!')
+
+#------------------------------------- 10 RELATÓRIOS -------------------------------------------
         elif op == '10':
             # RELATORIO()
+            print('='*19)
             print('Relatório emitido com sucesso!')
+            print('='*19)
+
+#------------------------------------- 11 SAIR (OK) -------------------------------------
         elif op == '11':
-            os.system('cls')
             cursor.close()
             conexao.close()
+            os.system('cls')
+            print('='*19)
             print('Obrigado!')
+            print('='*19)
             print('Volte Sempre!')
-        elif op == '4':
+            print('='*19)
+        elif op == '11':
             os.system('cls')
             banco_dados.consulta_cliente(cursor)
             print('-'*50)
@@ -124,5 +175,6 @@ def menu():
             print('Por favor')
 
     print('Fim do Progama!')
+    print('='*19)
 
     return None
