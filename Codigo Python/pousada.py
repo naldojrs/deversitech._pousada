@@ -5,7 +5,7 @@ import banco_dados
 conexao = banco_dados.conecta_bd()
 cursor = conexao.cursor()
 
-#------------------------------------- MENU (OK) ------------------------------------- 
+#------------------------------------- MENU (OK) --------------------------------------------- 
 def menu():
     os.system('cls')
     op = ''
@@ -14,6 +14,7 @@ def menu():
     print('='*35)
     print()
     while op != '11':  # Sai quando a op é 5
+        print('=' * 35)
         print('       TESTES DAS DEF_S:')
         print('=' * 35)
         print('    1  - CADASTRO DE CLIENTE')
@@ -29,7 +30,7 @@ def menu():
         print('    11 - SAIR')
         op = input('Opção: ')
 
-#------------------------------------- 1 CADASTRO DE CLIENTE (OK) -------------------------------------
+#------------------------------------- 1 CADASTRO DE CLIENTE (OK) ----------------------------
         if op == '1':
             # CADASTRA CLIENTE()
             os.system('cls')
@@ -48,7 +49,7 @@ def menu():
             os.system('cls')
             print(f'Usuário {nome} cadastrado com sucesso!')
 
-#------------------------------------- 2 CADASTRO DE QUARTOS (OK) -------------------------------------
+#------------------------------------- 2 CADASTRO DE QUARTOS (OK) ----------------------------
         elif op == '2':
             # CADASTRA QUARTO()
             os.system('cls')
@@ -68,7 +69,7 @@ def menu():
             os.system('cls')
             print(f'Quarto {numQuarto} Cadstrado com Sucesso!')
 
-#------------------------------------- 3 RESERVA CHECK-IN ---------------------------------------
+#------------------------------------- 3 RESERVA CHECK-IN ------------------------------------
         elif op == '3':
             # RESERVA - CHECK_IN ()
             os.system('cls')
@@ -76,7 +77,7 @@ def menu():
             print('RESERVA - CHECK_IN()')
             print('='*19)
 
-#------------------------------------- 4 CONSULTA CLIENTES -------------------------------------
+#------------------------------------- 4 CONSULTA CLIENTES (OK) ------------------------------
         elif op == '4':
             # CONSULTA CLIENTES()
             os.system('cls')
@@ -86,23 +87,33 @@ def menu():
             
             nome = input('Nome: ')
             
-            banco_dados.consulta_clientes(cursor, nome,cpf, telefone)
+            cursor = conexao.cursor()
+            comando = f''' SELECT * FROM clientes WHERE nome = '{nome}';'''
+            cursor.execute(comando)
+            conexao.commit()
             print('-'*50)
             input('Aperte Enter para voltar: ')
             os.system('cls')
 
-#------------------------------------- 5 CONSULTA QUARTOS -------------------------------------  
+#------------------------------------- 5 CONSULTA QUARTOS (OK) -------------------------------  
         elif op == '5':
             # CONSULTA QUARTO() - ACHO QUE PRECISA CADASTRAR UM QUARTO.
             os.system('cls')
             print('='*19)
             print('CONSULTA QUARTO()')
             print('='*19)
+
             numQuarto = input('Número: ')
 
-            print(f'QUARTO {numQuarto}')
+            cursor = conexao.cursor()
+            comando = f''' SELECT * FROM quartos WHERE numQuarto = '{numQuarto}';'''
+            cursor.execute(comando)
+            conexao.commit()
+            print('-'*50)
+            input('Aperte Enter para voltar: ')
+            os.system('cls')
 
-#------------------------------------- 6 CONSULTA RESERVA -------------------------------------
+#------------------------------------- 6 CONSULTA RESERVA ------------------------------------
         elif op == '6':
             # CONSULTA RESERVA()
             os.system('cls')
@@ -114,7 +125,7 @@ def menu():
 
             print(f'RESERVA {nome}')
 
-#------------------------------------- 7 EXCLUIR CLIENTES -------------------------------------
+#------------------------------------- 7 EXCLUIR CLIENTES (OK) ------------------------------------
         elif op == '7':
             # EXCLUIR CLIENTE()
             os.system('cls')
@@ -123,20 +134,30 @@ def menu():
             print('='*19)
 
             nome = input('NOME DO CLIENTE: ')
-
+                     
+            cursor = conexao.cursor()
+            comando = f''' DELETE FROM clientes WHERE nome = '{nome}';'''
+            cursor.execute(comando)
             print(f'Cliente {nome} excluido com sucesso!')
+            conexao.commit()
+            
 
-#------------------------------------- 8 EXCLUIR QUARTOS -------------------------------------
+#------------------------------------- 8 EXCLUIR QUARTOS (OK) -------------------------------------
         elif op == '8':
             # EXCLUIR QUARTO()
             os.system('cls')
             print('='*19)
+
             numQuarto = input('NUMERO DO QUARTO: ')
             print('='*19)
-
+            cursor = conexao.cursor()
+            comando = f''' DELETE FROM quartos WHERE numQuarto = '{numQuarto}';'''
+            cursor.execute(comando)
             print(f'Quarto {numQuarto} excluido com sucesso!')
+            conexao.commit()
 
-#------------------------------------- 9 RESERVA CHECK-OUT ------------------------------------ 
+           
+ #------------------------------------- 9 RESERVA CHECK-OUT ---------------------------------- 
         elif op == '9':
             # RESERVA - CHECK OUT()
             os.system('cls')
@@ -146,14 +167,14 @@ def menu():
 
             print(f'Quarto {numQuarto} Check Out com sucesso!')
 
-#------------------------------------- 10 RELATÓRIOS -------------------------------------------
+#------------------------------------- 10 RELATÓRIOS -----------------------------------------
         elif op == '10':
             # RELATORIO()
             print('='*19)
             print('Relatório emitido com sucesso!')
             print('='*19)
 
-#------------------------------------- 11 SAIR (OK) -------------------------------------
+#--------------------------------------- 11 SAIR (OK) -----------------------------------------
         elif op == '11':
             cursor.close()
             conexao.close()
