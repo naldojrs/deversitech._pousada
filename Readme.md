@@ -55,15 +55,16 @@
 
         1  - CADASTRO DE CLIENTE
         2  - CADASTRO DE QUARTO
-        3  - RESERVA - CHECK_IN
-        4  - CONSULTAR CLIENTE
-        5  - CONSULTAR QUARTO
-        6  - CONSULTAR RESERVA
-        7  - EXCLUIR CLIENTE
-        8  - EXCLUIR QUARTO
-        9  - RESERVA - CHECK_OUT
-        10 - RELATÓRIO
-        11 - SAIR
+        3  - CONSULTAR CLIENTE
+        4  - CONSULTAR QUARTO
+        5  - CONSULTAR RESERVA
+        6  - EXCLUIR CLIENTE
+        7  - EXCLUIR QUARTO
+        8  - RESERVA - CHECK_OUT
+        9  - RESERVA - CHECK_IN
+        10 - RELATÓRIO CLIENTES
+        11 - RELATÓRIO QUARTOS
+        12 - SAIR
 
   
   ---
