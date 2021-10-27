@@ -68,7 +68,7 @@
   
   ---
 
-# DER (Diagrama Entidade-Relacionamento)
+# DER (Diagrama Entidade Relacionamento)
 
 ![DER do bando de dados](https://github.com/naldojrs/deversitech._pousada/blob/pousada/banco_dados/derPousada.png?raw=true)
 
