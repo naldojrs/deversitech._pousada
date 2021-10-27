@@ -7,10 +7,10 @@
 ###### Tecnologia utilizadas
 
 - Python
-- sql Server
-- Sql workbench
-- github
-- metodologia ágil
+- SQL Server
+- SQL Workbench
+- Github
+- Metodologia Ágil
 
 ---
 
@@ -24,7 +24,7 @@
 
 - O sistema precisa ter opção de check-in e check-out. O check-in só pode ser permitido se o quarto estiver reservado, e o check-out só é permitido se o quarto estiver com status ocupado. 
 
-- O processo terá diversas etapas e status: Livre > reservado > realizando check-in > ocupado > realizando check-out > Livre.
+- O processo terá diversas etapas e status: Livre > Reservado > Realizando check-in > Ocupado > Realizando check-out > Livre.
 
   - Livre: Quarto disponível para reserva.
   - Reservado: Quarto reservado para um cliente.
@@ -68,13 +68,13 @@
   
   ---
 
-# DER
+# DER (Diagrama Entidade-Relacionamento)
 
 ![DER do bando de dados](https://github.com/naldojrs/deversitech._pousada/blob/pousada/banco_dados/derPousada.png?raw=true)
 
   
   ---
-# MER
+# MER (Modelo Entidade Relacionamento)
 
 ![MER do bando de dados](https://github.com/naldojrs/deversitech._pousada/blob/pousada/banco_dados/merPousada.png?raw=true)
 
