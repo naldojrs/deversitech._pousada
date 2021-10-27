@@ -51,12 +51,6 @@
 # Segue abaixo alguns detalhes do projeto:
   ---
 
-# MER
-
-![MER do bando de dados](https://github.com/naldojrs/deversitech._pousada/blob/pousada/banco_dados/merPousada.png?raw=true)
-
-  ---
-
 ## Menu exibido pelo software:
 
         1  - CADASTRO DE CLIENTE
@@ -70,6 +64,20 @@
         9  - RESERVA - CHECK_OUT
         10 - RELATÓRIO
         11 - SAIR
+
+  
+  ---
+
+# DER
+
+![DER do bando de dados](https://github.com/naldojrs/deversitech._pousada/blob/pousada/banco_dados/derPousada.png?raw=true)
+
+  
+  ---
+# MER
+
+![MER do bando de dados](https://github.com/naldojrs/deversitech._pousada/blob/pousada/banco_dados/merPousada.png?raw=true)
+
 
 
 
