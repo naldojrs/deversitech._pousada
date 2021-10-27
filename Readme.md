@@ -38,10 +38,8 @@
 ###### Componentes do grupo
 
 
-- Jefte Oliveira
 - Josinaldo Rodrigues dos Santos
 - Júlio Furtado
-- Osiel Mesquita de Oliveira
 - Thiago Batista Altoé
 
   ---
